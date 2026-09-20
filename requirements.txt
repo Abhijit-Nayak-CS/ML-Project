@@ -1,0 +1,30 @@
+numpy
+pandas
+seaborn
+
+# this is automatically triggered set.py
+-e .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
