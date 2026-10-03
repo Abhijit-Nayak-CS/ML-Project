@@ -1,11 +1,16 @@
 numpy
 pandas
 seaborn
+matplotlib
+scikit-learn
+xgboost
+catboost
+dill
 
 # this is automatically triggered set.py
 -e .
 
-
+# pip install -r requirements.txt (in cmd)
 
 
 

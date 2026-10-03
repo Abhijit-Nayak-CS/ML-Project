@@ -11,12 +11,13 @@ def get_requirements(file_path:str)->List[str]:
     '''
     requirements=[]
     with open(file_path) as file_obj:
-        requirements=file_obj.readlines() # it read the rewuirements.txt file object
-        # List comprehansion
-        requirements=[req.replace("\n","") for req in requirements]
-
-        if HYPEN_E_DOT in requirements:
-            requirements.remove(HYPEN_E_DOT)
+        requirements = [
+            requirement.strip()
+            for requirement in file_obj
+            if requirement.strip()
+            and not requirement.strip().startswith("#")
+            and requirement.strip() != HYPEN_E_DOT
+        ]
 
     return requirements
 
@@ -31,7 +32,6 @@ packages=find_packages(),
 install_requires=get_requirements('requirements.txt')
 
 )
-
 
 
 

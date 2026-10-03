@@ -1,5 +1,6 @@
 import sys
-import logging
+# import logging
+from src.logger import logging
 
 def error_message_detail(error,error_detail:sys):
     ## In this line this variable store in which file in which line the error will be be occored and (_,_,) is for not show the first two output
