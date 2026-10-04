@@ -81,17 +81,22 @@ class DataTransformation:
 
             target_column_name = "math_score"
 
-            input_feature_train_df = train_df.drop(columns=[target_column_name], axis=1)
+            # input_feature_train_df = train_df.drop(columns=[target_column_name], axis=1) They drop axis=1
+            input_feature_train_df = train_df.drop(columns=[target_column_name])
             target_feature_train_df = train_df[target_column_name]
 
-            input_feature_test_df = test_df.drop(columns=[target_column_name], axis=1)
+            # Also same the upper type 
+            input_feature_test_df = test_df.drop(columns=[target_column_name])
             target_feature_test_df = test_df[target_column_name]
 
             logging.info("Applying preprocessung object on training dataframe and testing dataframe.")
 
+            # fit_transform: Learns the parameters from the training data and then transforms the data
             input_feature_train_arr = preprocessing_obj.fit_transform(input_feature_train_df)
+            # transform: Uses the already learned parameters to transform new/test data
             input_feature_test_arr = preprocessing_obj.transform(input_feature_test_df)
 
+            # np.c_: Combines multiple arrays/columns side-by-side (column-wise)
             train_arr = np.c_[
                 input_feature_train_arr, np.array(target_feature_train_df)
             ]
@@ -114,7 +119,6 @@ class DataTransformation:
 
         except Exception as e:
             raise CustomException(e, sys)
-
 
 
 
