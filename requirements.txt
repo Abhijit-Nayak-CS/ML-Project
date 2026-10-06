@@ -2,16 +2,16 @@ numpy
 pandas
 seaborn
 matplotlib
-scikit-learn
+scikit-learn==1.7.2
 xgboost
 catboost
 dill
+flask
 
 # this is automatically triggered set.py
 -e .
 
 # pip install -r requirements.txt (in cmd)
-
 
 
 
