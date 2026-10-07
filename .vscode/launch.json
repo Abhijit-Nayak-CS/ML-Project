@@ -5,9 +5,34 @@
             "name": "Train model",
             "type": "debugpy",
             "request": "launch",
+            "python": "${workspaceFolder}/ML-project/python.exe",
             "module": "src.components.data_ingestion",
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Run Flask app",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "${workspaceFolder}/ML-project/python.exe",
+            "module": "flask",
+            "args": [
+                "--app",
+                "app:app",
+                "run",
+                "--debug",
+                "--host",
+                "127.0.0.1",
+                "--port",
+                "5000"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "serverReadyAction": {
+                "pattern": "Running on (http://\\S+)",
+                "uriFormat": "%s",
+                "action": "openExternally"
+            }
         }
     ]
 }

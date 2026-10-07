@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Math Score Prediction</title>
+    <style>
+        body {
+            background: #f3f6fb;
+            color: #1f2937;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 32px 16px;
+        }
+        main {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px #1f29371a;
+            margin: 0 auto;
+            max-width: 560px;
+            padding: 28px;
+            text-align: center;
+        }
+        .score { color: #2563eb; font-size: 2rem; font-weight: 700; }
+        a { color: #2563eb; }
+    </style>
+</head>
+<body>
+    <main>
+        {% if error %}
+        <h1>Could not make a prediction</h1>
+        <p role="alert">{{ error }}</p>
+        {% else %}
+        <h1>Predicted math score</h1>
+        <p class="score">{{ result }}</p>
+        {% endif %}
+        <p><a href="{{ url_for('index') }}">Make another prediction</a></p>
+    </main>
+</body>
+</html>

@@ -121,5 +121,3 @@ class DataTransformation:
             raise CustomException(e, sys)
 
 
-
-

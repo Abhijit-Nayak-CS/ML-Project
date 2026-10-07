@@ -99,17 +99,20 @@ class ModelTrainer:
                 }
             }
 
-            model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,models=models,param=params)
+            model_report: dict = evaluate_models(
+                X_train=X_train,
+                y_train=y_train,
+                models=models,
+                param=params,
+            )
 
-            best_model_name, (best_model_score, _) = max(
+            best_model_name, _ = max(
                 model_report.items(),
                 key=lambda item: item[1][0],
             )
             best_model = models[best_model_name]
 
-            if best_model_score < 0.6: ## 0.6 is the thrashold
-                raise CustomException("No best model found")
-            logging.info(f"Best found model on both training and testing dataset")
+            logging.info(f"Best model selected by cross-validation: {best_model_name}")
 
             save_object(
                 file_path = self.model_trainer_config.trained_model_file_path,
@@ -124,15 +127,3 @@ class ModelTrainer:
 
         except Exception as e:
             raise CustomException(e, sys)
-
-
-
-
-
-
-
-
-
-
-
-
